@@ -4,7 +4,7 @@ using namespace std;
 
 class MirrorMode
 {
-public:
+  public:
     MirrorMode();//default constructor
     MirrorMode(array b);
     ~MirrorMode();
@@ -15,10 +15,11 @@ public:
     //aux functions
     checkCorner();
     checkSide();
+    getNumNeighbors();
 
     //vars
     int numNeighbors;
 
     char *gameBoard;
 
-}
+};

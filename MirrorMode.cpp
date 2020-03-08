@@ -1,4 +1,5 @@
 #include "MirrorMode.h"
+#include <iostream>
 
 MirrorMode::MirrorMode()
 {
@@ -18,14 +19,14 @@ MirrorMode::~MirrorMode()
 
 int MirrorMode::countNeighbors()
 {
+  int tempCorner = 0;
+  int tempSide = 0;
+  int tempMiddle = 0;
+
   for(i = 0; i < gameBoard.length(); ++i)
   {
     for(j = 0; j < gameBoard[i].length(); ++j)
     {
-      int tempCorner = 0;
-      int tempSide = 0;
-      int tempMiddle = 0;
-
       if(gameBoard[i][j]=='x')
       {
         if(checkCorner(i,j))
@@ -64,4 +65,9 @@ bool MirrorMode::checkSide(int x, int y)
   {
     return true;
   }
+}
+
+int MirrorMode::getNumNeighbors()
+{
+
 }
