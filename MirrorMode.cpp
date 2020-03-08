@@ -23,9 +23,9 @@ int MirrorMode::countNeighbors()
   int tempSide = 0;
   int tempMiddle = 0;
 
-  for(i = 0; i < gameBoard.length(); ++i)
+  for(int i = 0; i < gameBoard.length(); ++i)
   {
-    for(j = 0; j < gameBoard[i].length(); ++j)
+    for(int j = 0; j < gameBoard[i].length(); ++j)
     {
       if(gameBoard[i][j]=='x')
       {

@@ -18,4 +18,5 @@ public:
 
   //vars
   char *gameBoard;
+  int generationNum:
 }
