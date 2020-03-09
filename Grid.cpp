@@ -1,0 +1,95 @@
+#include "Grid.h"
+
+Grid::Grid(){
+    rowCount = 5;
+    columnCount = 5;
+    generationGrid = new char*[rowCount];
+    for(int i = 0; i < rowCount; ++i){
+        generationGrid[i] = new char[columnCount];
+    }
+    neighborCountGrid = new char*[rowCount];
+    for(int j = 0; j < rowCount; ++j){
+        neighborCountGrid[j] = new char[columnCount];
+    }
+    fillGrid();
+}
+
+Grid::Grid(int row, int column){
+    rowCount = row;
+    columnCount = column;
+    generationGrid = new char*[rowCount];
+    for(int i = 0; i < rowCount; ++i){
+        generationGrid[i] = new char[columnCount];
+    }
+    neighborCountGrid = new char*[rowCount];
+    for(int j = 0; j < rowCount; ++j){
+        neighborCountGrid[j] = new char[columnCount];
+    }
+    fillGrid();
+}
+
+Grid::~Grid(){
+    for(int x = 0; x < 5; ++x) {
+        delete[] generationGrid[x];
+        delete[] neighborCountGrid[x];
+    }
+    delete[] generationGrid;
+    delete[] neighborCountGrid;
+}
+
+void Grid::fillGrid(){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            generationGrid[r][c] = '\n';
+            neighborCountGrid[r][c] = 0;
+        }
+    }
+}
+
+void Grid::assignCells(char **arr){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            generationGrid[r][c] = arr[r][c];
+        }
+    }
+}
+
+void Grid::updateNeighbors(char **arr){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            neighborCountGrid[r][c] = arr[r][c];
+        }
+    }
+}
+
+void Grid::randomCells(){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            int randnum = rand()%2;
+            if(randnum == 0){
+                generationGrid[r][c] = '-';
+            }
+            else{
+                generationGrid[r][c] = 'X';
+            }
+        }
+    }
+}
+
+
+int Grid::getRows(){
+    return rowCount;
+}
+
+int Grid::getColumns(){
+    return columnCount;
+}
+
+void Grid::printGrid(){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            cout << generationGrid[r][c];
+        }
+        cout << endl;
+    }
+}
