@@ -63,14 +63,15 @@ void Grid::updateNeighbors(char **arr){
 }
 
 void Grid::randomCells(){
+    float density = (float)(rand())/(float)(RAND_MAX);
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
-            int randnum = rand()%2;
-            if(randnum == 0){
-                generationGrid[r][c] = '-';
+            float cellOccupied = (float)(rand())/(float)(RAND_MAX);
+            if(cellOccupied <= density){
+                generationGrid[r][c] = 'X';
             }
             else{
-                generationGrid[r][c] = 'X';
+                generationGrid[r][c] = '-';
             }
         }
     }
