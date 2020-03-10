@@ -8,6 +8,7 @@ public:
     ~Grid();
     void assignCells(char **arr);
     void updateNeighbors(char **arr);
+    char** generationGrid;
     void randomCells();
     int getRows();
     int getColumns();
@@ -16,7 +17,7 @@ public:
 private:
     int rowCount = 1;
     int columnCount = 1;
-    char** generationGrid;
-    char** neighborCountGrid;
+
+    int** neighborCountGrid;
     void fillGrid();
 };

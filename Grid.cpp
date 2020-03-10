@@ -7,9 +7,9 @@ Grid::Grid(){
     for(int i = 0; i < rowCount; ++i){
         generationGrid[i] = new char[columnCount];
     }
-    neighborCountGrid = new char*[rowCount];
+    neighborCountGrid = new int*[rowCount];
     for(int j = 0; j < rowCount; ++j){
-        neighborCountGrid[j] = new char[columnCount];
+        neighborCountGrid[j] = new int[columnCount];
     }
     fillGrid();
 }
@@ -21,15 +21,15 @@ Grid::Grid(int row, int column){
     for(int i = 0; i < rowCount; ++i){
         generationGrid[i] = new char[columnCount];
     }
-    neighborCountGrid = new char*[rowCount];
+    neighborCountGrid = new int*[rowCount];
     for(int j = 0; j < rowCount; ++j){
-        neighborCountGrid[j] = new char[columnCount];
+        neighborCountGrid[j] = new int[columnCount];
     }
     fillGrid();
 }
 
 Grid::~Grid(){
-    for(int x = 0; x < 5; ++x) {
+    for(int x = 0; x < rowCount; ++x) {
         delete[] generationGrid[x];
         delete[] neighborCountGrid[x];
     }
@@ -54,7 +54,7 @@ void Grid::assignCells(char **arr){
     }
 }
 
-void Grid::updateNeighbors(char **arr){
+void Grid::updateNeighbors(int **arr){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
             neighborCountGrid[r][c] = arr[r][c];
@@ -93,4 +93,11 @@ void Grid::printGrid(){
         }
         cout << endl;
     }
+}
+
+int main(){
+    Grid *userGrid = new Grid(2,2);
+    userGrid->randomCells();
+    userGrid = NULL;
+    delete userGrid;
 }
