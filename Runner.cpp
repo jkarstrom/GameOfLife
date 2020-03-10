@@ -6,31 +6,38 @@ Runner::Runner(){
     cout << "How many columns are in the bacteria grid? ";
     cin >> columns;
     Grid *userGrid = new Grid(rows,columns);
-    cout << "Do you have a mapping of the bacteria already? y/n ";
+
+    cout << "Do you have a mapping of the bacteria already? (y/n) ";
     char mapping;
     cin >> mapping;
     if(mapping == 'y'){
-        cout << "Provide the mapping line by line: " << endl;
-        // for(int r = 0; r < rows; ++r){
-        //     string line;
-        //     cin >> line;
-        //     for(int c = 0; c < columns; ++c){
-        //         userGrid[r][c] = line.at(c);
-        //     }
-        // }
+        // ask for map file and assignCells
+        // userGrid->assignCells(userMap);
     }
-    // else{
-    //     userGrid->randomCells();
-    // }
-    // userGrid->printGrid();
+    else{
+        userGrid->randomCells();
+    }
+    userGrid->printGrid();
 
-    // insert how the user wants to view the generations
-    // Segmentation fault in this part somewhere
-    delete userGrid;
+    cout << endl;
+    cout << "How would you like to view the generations:" << endl
+    << "(1) with a pause between each generation" << endl
+    << "(2) I press Enter to generate the next generation" << endl
+    << "(3) print them into a file I have" << endl;
+    cin >> view;
+
+    cout << endl;
+    cout << "What mode would you like:" << endl
+    << "(1) classic" << endl
+    << "(2) mirror" << endl
+    << "(3) donut" << endl;
+    cin >> mode;
+
 }
 
 Runner::~Runner(){
-
+    userGrid = NULL;
+    delete userGrid;
 }
 
 int main(){

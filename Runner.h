@@ -6,9 +6,10 @@ public:
     Runner();
     ~Runner();
 private:
-    int rows;
-    int columns;
+    int rows = 0;
+    int columns = 0;
     Grid *userGrid;
-    int view;
+    int view = 0;
+    int mode = 0;
 
 };
