@@ -43,8 +43,6 @@ Runner::Runner(){
         delete cm;
     }
 
-
-
 }
 
 Runner::~Runner(){
