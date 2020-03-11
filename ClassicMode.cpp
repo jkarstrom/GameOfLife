@@ -127,7 +127,7 @@ void ClassicMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r-1][c-1];
+                        ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
                     }
