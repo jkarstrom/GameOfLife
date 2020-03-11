@@ -77,8 +77,16 @@ void Grid::updateNeighbors(int **arr){
     }
 }
 
+void Grid::setCell(int row, int column, char bacteria){
+    generationGrid[row][column] = bacteria;
+}
+
 char Grid::getCell(int row, int column){
     return generationGrid[row][column];
+}
+
+int Grid::getCellNeighbors(int row, int column){
+    return neighborCountGrid[row][column];
 }
 
 int Grid::getRows(){

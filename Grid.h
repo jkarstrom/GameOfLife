@@ -9,7 +9,9 @@ public:
     void assignCells(char **arr);
     void randomCells();
     void updateNeighbors(int **arr);
+    void setCell(int row, int column, char bacteria);
     char getCell(int row, int column);
+    int getCellNeighbors(int row, int column);
     int getRows();
     int getColumns();
     void printGrid();

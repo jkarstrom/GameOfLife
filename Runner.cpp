@@ -35,14 +35,19 @@ Runner::Runner(){
     int mode = 0;
     cin >> mode;
 
+    Play *newPlay = new Play(userGrid);
     if(mode == 1){
         ClassicMode *cm = new ClassicMode(userGrid);
-        cm->countNeighbors(userGrid);
-        userGrid->printGrid2();
+        while(!newPlay->checkDeath(userGrid)){
+                cm->countNeighbors(userGrid);
+                userGrid->printGrid();
+                cout << endl;
+        }
         cm = NULL;
         delete cm;
     }
-
+    newPlay = NULL;
+    delete newPlay;
 }
 
 Runner::~Runner(){
