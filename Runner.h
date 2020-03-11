@@ -1,4 +1,4 @@
-#include "Grid.h"
+#include "ClassicMode.h"
 #include <string>
 
 class Runner{

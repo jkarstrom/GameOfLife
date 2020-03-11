@@ -7,17 +7,18 @@ public:
     Grid(int row, int column);
     ~Grid();
     void assignCells(char **arr);
-    void updateNeighbors(char **arr);
-    char** generationGrid;
     void randomCells();
+    void updateNeighbors(int **arr);
+    char getCell(int row, int column);
     int getRows();
     int getColumns();
     void printGrid();
+    void printGrid2(); // delete
 
 private:
-    int rowCount = 1;
-    int columnCount = 1;
-
+    int rowCount;
+    int columnCount;
+    char** generationGrid;
     int** neighborCountGrid;
     void fillGrid();
 };

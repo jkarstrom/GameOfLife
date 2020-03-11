@@ -24,6 +24,7 @@ Runner::Runner(){
     << "(1) with a pause between each generation" << endl
     << "(2) I press Enter to generate the next generation" << endl
     << "(3) print them into a file I have" << endl;
+    int view = 0;
     cin >> view;
 
     cout << endl;
@@ -31,7 +32,18 @@ Runner::Runner(){
     << "(1) classic" << endl
     << "(2) mirror" << endl
     << "(3) donut" << endl;
+    int mode = 0;
     cin >> mode;
+
+    if(mode == 1){
+        ClassicMode *cm = new ClassicMode(userGrid);
+        cm->countNeighbors(userGrid);
+        userGrid->printGrid2();
+        cm = NULL;
+        delete cm;
+    }
+
+
 
 }
 

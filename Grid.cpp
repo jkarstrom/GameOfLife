@@ -54,14 +54,6 @@ void Grid::assignCells(char **arr){
     }
 }
 
-void Grid::updateNeighbors(int **arr){
-    for(int r = 0; r < rowCount; ++r){
-        for(int c = 0; c < columnCount; ++c){
-            neighborCountGrid[r][c] = arr[r][c];
-        }
-    }
-}
-
 void Grid::randomCells(){
     float density = (float)(rand())/(float)(RAND_MAX);
     for(int r = 0; r < rowCount; ++r){
@@ -77,6 +69,17 @@ void Grid::randomCells(){
     }
 }
 
+void Grid::updateNeighbors(int **arr){
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            neighborCountGrid[r][c] = arr[r][c];
+        }
+    }
+}
+
+char Grid::getCell(int row, int column){
+    return generationGrid[row][column];
+}
 
 int Grid::getRows(){
     return rowCount;
@@ -95,9 +98,19 @@ void Grid::printGrid(){
     }
 }
 
-int main(){
-    Grid *userGrid = new Grid(2,2);
-    userGrid->randomCells();
-    userGrid = NULL;
-    delete userGrid;
+void Grid::printGrid2(){ // delete
+    for(int r = 0; r < rowCount; ++r){
+        for(int c = 0; c < columnCount; ++c){
+            cout << neighborCountGrid[r][c];
+        }
+        cout << endl;
+    }
 }
+
+// int main(){
+//     Grid *userGrid = new Grid(2,2);
+//     userGrid->randomCells();
+//     userGrid->printGrid();
+//     userGrid = NULL;
+//     delete userGrid;
+// }
