@@ -37,6 +37,7 @@ Grid::~Grid(){
     delete[] neighborCountGrid;
 }
 
+// initializes generationGrid and neighborCountGrid to default values
 void Grid::fillGrid(){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -46,6 +47,7 @@ void Grid::fillGrid(){
     }
 }
 
+// used for when user has initial cell mapping
 void Grid::assignCells(char **arr){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -54,7 +56,9 @@ void Grid::assignCells(char **arr){
     }
 }
 
+// generates a random assort of bacteria based on random density
 void Grid::randomCells(){
+    srand (time(NULL));
     float density = (float)(rand())/(float)(RAND_MAX);
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -69,6 +73,7 @@ void Grid::randomCells(){
     }
 }
 
+// changes the neighborCountGrid
 void Grid::updateNeighbors(int **arr){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -77,26 +82,32 @@ void Grid::updateNeighbors(int **arr){
     }
 }
 
+// change the selected cell value
 void Grid::setCell(int row, int column, char bacteria){
     generationGrid[row][column] = bacteria;
 }
 
+// returns X if bacteria is alive at cell
 char Grid::getCell(int row, int column){
     return generationGrid[row][column];
 }
 
+// returns the number of neighbors for a cell
 int Grid::getCellNeighbors(int row, int column){
     return neighborCountGrid[row][column];
 }
 
+// returns number of rows for grid
 int Grid::getRows(){
     return rowCount;
 }
 
+// returns number of columns for grid
 int Grid::getColumns(){
     return columnCount;
 }
 
+// prints bacteria colony
 void Grid::printGrid(){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -106,7 +117,8 @@ void Grid::printGrid(){
     }
 }
 
-void Grid::printGrid2(){ // delete
+// prints neighborCountGrid (DELETE BEFORE SUBMISSION)
+void Grid::printGrid2(){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
             cout << neighborCountGrid[r][c];

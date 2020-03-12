@@ -1,16 +1,18 @@
-#include <iostream>
 #include "Grid.h"
-using namespace std;
 
 class ClassicMode{
 public:
     ClassicMode();
     ClassicMode(Grid *someGrid);
     ~ClassicMode();
-    void countNeighbors(Grid *someGrid);
+
+    void countNeighbors(Grid *someGrid); // counts and updates the neighborCountGrid
+
 private:
-    int rows;
-    int columns;
-    void zeroNeighbors();
+    int rows = 0;
+    int columns = 0;
     int **newNeighbors;
+
+    void zeroNeighbors(); // zeros newNeighbors array to 0
+
 };

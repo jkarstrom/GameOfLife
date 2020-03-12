@@ -27,6 +27,7 @@ ClassicMode::~ClassicMode(){
     delete[] newNeighbors;
 }
 
+// zeros newNeighbors array to 0
 void ClassicMode::zeroNeighbors(){
     for(int i = 0; i < rows; ++i){
         for(int j = 0; j < columns; ++j){
@@ -35,6 +36,7 @@ void ClassicMode::zeroNeighbors(){
     }
 }
 
+// counts and updates the neighborCountGrid
 void ClassicMode::countNeighbors(Grid *someGrid){
     zeroNeighbors();
     for(int r = 0; r < rows; ++r){
