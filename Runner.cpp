@@ -43,6 +43,7 @@ Runner::Runner(){
     << "(3) donut" << endl;
     int mode = 0;
     cin >> mode;
+    cout << endl;
 
     // run generations
     Play *newPlay = new Play(userGrid);
@@ -78,9 +79,4 @@ Runner::Runner(){
 Runner::~Runner(){
     userGrid = NULL;
     delete userGrid;
-}
-
-int main(){
-    Runner *playing = new Runner();
-    return 0;
 }
