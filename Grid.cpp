@@ -126,11 +126,3 @@ void Grid::printGrid2(){
         cout << endl;
     }
 }
-
-// int main(){
-//     Grid *userGrid = new Grid(2,2);
-//     userGrid->randomCells();
-//     userGrid->printGrid();
-//     userGrid = NULL;
-//     delete userGrid;
-// }
