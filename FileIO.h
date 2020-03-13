@@ -1,24 +1,20 @@
 #include "Grid.h"
-#include <iostream>
-
-using namespace std;
 
 class FileIO
 {
 public:
 
   FileIO();
-  FileIO(Grid *someGrid, int genNum);
   ~FileIO();
 
-  //cour functions
+  //core functions
+  static void readMapping(string fileName, Grid *someGrid);
 
   //aux functions
-  void print();
+  static void print(string fileName, Grid *someGrid);
 
+private:
   //vars
   int rows = 0;
   int columns = 0;
-  Grid *gameBoard;
-  int generationNum:
 };

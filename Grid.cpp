@@ -58,7 +58,7 @@ void Grid::assignCells(char **arr){
 
 // generates a random assort of bacteria based on random density
 void Grid::randomCells(){
-    srand (time(NULL));
+    // srand (time(NULL));
     float density = (float)(rand())/(float)(RAND_MAX);
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
@@ -80,6 +80,11 @@ void Grid::updateNeighbors(int **arr){
             neighborCountGrid[r][c] = arr[r][c];
         }
     }
+}
+
+// increments generation number
+void Grid::updateGeneration(){
+    ++generationNum;
 }
 
 // change the selected cell value
@@ -107,8 +112,13 @@ int Grid::getColumns(){
     return columnCount;
 }
 
+int Grid::getGenerationNum(){
+    return generationNum;
+}
+
 // prints bacteria colony
 void Grid::printGrid(){
+    cout << "Generation: " << generationNum << endl;
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
             cout << generationGrid[r][c];

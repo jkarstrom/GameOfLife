@@ -36,6 +36,7 @@ void Play::execute(Grid *someGrid){
             }
         }
     }
+    someGrid->updateGeneration();
 }
 
 // checks if all bacteria is dead

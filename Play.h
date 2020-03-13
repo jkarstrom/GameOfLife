@@ -1,6 +1,6 @@
 #include "ClassicMode.h"
-// #include "MirrorMode.h"
-// #include "DonutMode.h"
+#include "MirrorMode.h"
+#include "DoughnutMode.h"
 
 class Play{
 public:

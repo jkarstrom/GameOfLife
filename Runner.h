@@ -12,7 +12,8 @@ private:
     int columns = 0;
     Grid *userGrid;
     int view = 0;
-    string filename = "NONE";
+    string fileRead = "NA";
+    string fileWrite = "NA";
     int mode = 0;
 
 };

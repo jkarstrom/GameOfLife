@@ -1,17 +1,17 @@
 #include "Grid.h"
-#include <iostream>
-
-using namespace std;
 
 class MirrorMode
 {
-  public:
+public:
     MirrorMode();//default constructor
     MirrorMode(Grid *someGrid);
     ~MirrorMode();
 
     //cour functions
     void countNeighbors(Grid *someGrid);
+
+private:
+
     void zeroNeighbors();
 
     //vars

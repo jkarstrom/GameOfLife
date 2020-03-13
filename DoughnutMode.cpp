@@ -1,5 +1,4 @@
 #include "DoughnutMode.h"
-#include <iostream>
 
 DoughnutMode::DoughnutMode()
 {

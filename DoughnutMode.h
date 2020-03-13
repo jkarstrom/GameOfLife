@@ -1,19 +1,17 @@
 #include "Grid.h"
-#include <iostream>
-
-using namespace std;
 
 class DoughnutMode
 {
-  public:
+public:
 
     DoughnutMode();//default constructor
     DoughnutMode(Grid *someGrid);//overload constructor
     ~DoughnutMode();
 
-    //cour functions
+    //core functions
     void countNeighbors(Grid *someGrid);
 
+private:
     //aux functions
     void zeroNeighbors();
 

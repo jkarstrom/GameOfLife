@@ -1,4 +1,5 @@
 #include "Runner.h"
+#include "FileIO.h"
 
 Runner::Runner(){
     // establish initial grid size
@@ -13,13 +14,14 @@ Runner::Runner(){
     char mapping;
     cin >> mapping;
     if(mapping == 'y'){
-        // ask for map file and assignCells
-        // userGrid->assignCells(userMap);
+        cout << "What is the name of the file with the mapping? ";
+        cin >> fileRead;
+        FileIO::readMapping(fileRead,userGrid);
     }
     else{
         userGrid->randomCells();
     }
-    cout << "Initial generation: " << endl;
+    cout << endl;
     userGrid->printGrid();
 
     // determine generation display option
@@ -32,7 +34,8 @@ Runner::Runner(){
     cin >> view;
     if(view == 3){
         cout << "What is the file name?" << endl;
-        cin >> filename;
+        cin >> fileWrite;
+        FileIO::print(fileWrite, userGrid);
     }
 
     // select mode
@@ -52,14 +55,21 @@ Runner::Runner(){
         while(!newPlay->checkDeath(userGrid)){
             cm->countNeighbors(userGrid);
             newPlay->execute(userGrid);
-            userGrid->printGrid();
-            cout << endl;
             if(view == 1){
+                userGrid->printGrid();
+                cout << endl;
                 this_thread::sleep_for (std::chrono::seconds(1));
             }
             else if(view == 2){
+                userGrid->printGrid();
+                cout << endl;
                 string pause;
                 getline(cin,pause);
+            }
+            else{
+                if(userGrid->getGenerationNum() <= 100){
+                    FileIO::print(fileWrite, userGrid);
+                }
             }
 
         }
@@ -67,10 +77,56 @@ Runner::Runner(){
         delete cm;
     }
     else if(mode == 2){
-        // insert mirror mode
+        MirrorMode *mm = new MirrorMode(userGrid);
+        while(!newPlay->checkDeath(userGrid)){
+            mm->countNeighbors(userGrid);
+            newPlay->execute(userGrid);
+            if(view == 1){
+                userGrid->printGrid();
+                cout << endl;
+                this_thread::sleep_for (std::chrono::seconds(1));
+            }
+            else if(view == 2){
+                userGrid->printGrid();
+                cout << endl;
+                string pause;
+                getline(cin,pause);
+            }
+            else{
+                if(userGrid->getGenerationNum() <= 100){
+                    FileIO::print(fileWrite, userGrid);
+                }
+            }
+
+        }
+        mm = NULL;
+        delete mm;
     }
     else{
-        // insert donut mode
+        DoughnutMode *dm = new DoughnutMode(userGrid);
+        while(!newPlay->checkDeath(userGrid)){
+            dm->countNeighbors(userGrid);
+            newPlay->execute(userGrid);
+            if(view == 1){
+                userGrid->printGrid();
+                cout << endl;
+                this_thread::sleep_for (std::chrono::seconds(1));
+            }
+            else if(view == 2){
+                userGrid->printGrid();
+                cout << endl;
+                string pause;
+                getline(cin,pause);
+            }
+            else{
+                if(userGrid->getGenerationNum() <= 100){
+                    FileIO::print(fileWrite, userGrid);
+                }
+            }
+
+        }
+        dm = NULL;
+        delete dm;
     }
     newPlay = NULL;
     delete newPlay;

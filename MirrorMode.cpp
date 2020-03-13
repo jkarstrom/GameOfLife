@@ -1,5 +1,4 @@
 #include "MirrorMode.h"
-#include <iostream>
 
 MirrorMode::MirrorMode()
 {
