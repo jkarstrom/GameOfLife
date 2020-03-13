@@ -51,7 +51,7 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
                         ++newNeighbors[r][columns-1];
-                        ++newNeighbors[r-1][columns-1];
+                        ++newNeighbors[r+1][columns-1];
                         ++newNeighbors[rows-1][c];
                         ++newNeighbors[rows-1][c+1];
                         ++newNeighbors[rows-1][columns-1];
@@ -63,11 +63,11 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r][columns-c];
-                        ++newNeighbors[r-1][columns-c];
+                        ++newNeighbors[r][0];
+                        ++newNeighbors[r+1][0];
                         ++newNeighbors[rows-1][c];
                         ++newNeighbors[rows-1][c-1];
-                        ++newNeighbors[rows-1][columns-c];
+                        ++newNeighbors[rows-1][0];
                     }
                 }
                 // middle columns
@@ -92,11 +92,11 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r-1][c+1];
                         ++newNeighbors[r-1][c];
-                        ++newNeighbors[rows-r][c];
-                        ++newNeighbors[rows-r][c+1];
+                        ++newNeighbors[0][c];
+                        ++newNeighbors[0][c+1];
                         ++newNeighbors[r][columns-1];
                         ++newNeighbors[r-1][columns-1];
-                        ++newNeighbors[rows-r][columns-1];
+                        ++newNeighbors[0][columns-1];
                     }
                 }
                 // last column
@@ -105,11 +105,11 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r-1][c];
-                        ++newNeighbors[r][columns-c];
-                        ++newNeighbors[r-1][columns-c];
-                        ++newNeighbors[rows-r][columns-c];
-                        ++newNeighbors[rows-r][c];
-                        ++newNeighbors[rows-r][c-1];
+                        ++newNeighbors[r][0];
+                        ++newNeighbors[r-1][0];
+                        ++newNeighbors[0][columns-c];
+                        ++newNeighbors[0][c];
+                        ++newNeighbors[0][0];
                     }
                 }
                 // middle column
@@ -120,9 +120,9 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r][c-1];
-                        ++newNeighbors[rows-r][c];
-                        ++newNeighbors[rows-r][c-1];
-                        ++newNeighbors[rows-r][c+1];
+                        ++newNeighbors[0][c];
+                        ++newNeighbors[0][c-1];
+                        ++newNeighbors[0][c+1];
                     }
                 }
             }
@@ -149,9 +149,9 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r][columns-c];
-                        ++newNeighbors[r+1][columns-c];
-                        ++newNeighbors[r-1][columns-c];
+                        ++newNeighbors[r][0];
+                        ++newNeighbors[r+1][0];
+                        ++newNeighbors[r-1][0];
                     }
                 }
                 // middle columns

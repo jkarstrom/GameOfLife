@@ -106,6 +106,9 @@ Runner::Runner(){
         DoughnutMode *dm = new DoughnutMode(userGrid);
         while(!newPlay->checkDeath(userGrid)){
             dm->countNeighbors(userGrid);
+            cout << "Nei: " << endl;
+            userGrid->printGrid2();
+            cout << endl;// REMOVE ______________________________________________________________________
             newPlay->execute(userGrid);
             if(view == 1){
                 userGrid->printGrid();
