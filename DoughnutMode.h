@@ -6,20 +6,19 @@ class DoughnutMode
 {
   public:
 
-    DoughnutMode();//default consturctor
-    ~DoughnutMode();
+    ClassicMode();//default constructor
+    ClassicMode(Grid *someGrid);//overload constructor
+    ~ClassicMode();
 
     //cour functions
-    countNeighbors();
+    void countNeighbors(Grid *someGrid);
 
     //aux functions
-    checkCorner();
-    checkSide();
-    getNumNeighbors();
+    void zeroNeighbors();
 
     //vars
-    int numNeighbors;
-
-    char *gameBoard;
+    int rows = 0;
+    int columns = 0;
+    int **newNeighbors;
 
 };
