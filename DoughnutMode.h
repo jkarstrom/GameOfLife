@@ -1,3 +1,4 @@
+#include "Grid.h"
 #include <iostream>
 
 using namespace std;
@@ -6,9 +7,9 @@ class DoughnutMode
 {
   public:
 
-    ClassicMode();//default constructor
-    ClassicMode(Grid *someGrid);//overload constructor
-    ~ClassicMode();
+    DoughnutMode();//default constructor
+    DoughnutMode(Grid *someGrid);//overload constructor
+    ~DoughnutMode();
 
     //cour functions
     void countNeighbors(Grid *someGrid);

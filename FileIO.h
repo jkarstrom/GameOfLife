@@ -1,3 +1,4 @@
+#include "Grid.h"
 #include <iostream>
 
 using namespace std;
@@ -7,16 +8,16 @@ class FileIO
 public:
 
   FileIO();
+  FileIO(Grid *someGrid, int genNum);
   ~FileIO();
 
   //cour functions
-  print();
 
   //aux functions
   printGameBoard();
   printGenNumbers();
 
   //vars
-  char *gameBoard;
+  int **newNeighbors;
   int generationNum:
 }

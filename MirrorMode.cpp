@@ -10,12 +10,10 @@ MirrorMode::MirrorMode()
       newNeighbors[i] = new int[columns];
   }
   zeroNeighbors();
-  numNeighbors = 0;
 }
 
 MirrorMode::MirrorMode(Grid *someGrid)
 {
-  int numNeighbors = 0;
   rows = someGrid->getRows();
   columns = someGrid->getColumns();
   newNeighbors = new int*[rows];
@@ -23,7 +21,6 @@ MirrorMode::MirrorMode(Grid *someGrid)
       newNeighbors[i] = new int[columns];
   }
   zeroNeighbors();
-  numNeighbors = 0;
 }
 
 MirrorMode::~MirrorMode()
@@ -34,13 +31,13 @@ MirrorMode::~MirrorMode()
   delete[] newNeighbors;
 }
 
-void MirrorMode::zeroNeighbors(){
+void MirrorMode::zeroNeighbors()
+{
     for(int i = 0; i < rows; ++i){
         for(int j = 0; j < columns; ++j){
             newNeighbors[i][j] = 0;
         }
     }
-    numNeighbors = 0;
 }
 
 void MirrorMode::countNeighbors(Grid *someGrid){
@@ -52,30 +49,30 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                 // first column
                 if(c == 0){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=3;
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // last column
                 else if(c == (columns-1)){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=3;
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // middle columns
                 else{
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=1;
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r][c-1];
-                        numNeighbors++;
                     }
                 }
             }
@@ -84,30 +81,30 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                 // first column
                 if(c == 0){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=3;
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r-1][c+1];
                         ++newNeighbors[r-1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // last column
                 else if(c == (columns-1)){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=3;
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r-1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // middle column
                 else{
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=1;
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r-1][c+1];
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r][c-1];
-                        numNeighbors++;
                     }
                 }
             }
@@ -116,23 +113,23 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                 // first column
                 if(c == 0){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=1;
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r-1][c+1];
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // last column
                 else if(c == (columns-1)){
                     if(someGrid->getCell(r,c) == 'X'){
+                        newNeighbors[r][c]+=1;
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
-                        numNeighbors+= 3;
                     }
                 }
                 // middle columns
@@ -146,16 +143,10 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
-                        numNeighbors++;
                     }
                 }
             }
         }
     }
     someGrid->updateNeighbors(newNeighbors);
-}
-
-int MirrorMode::getNumNeighboors()
-{
-  return numNeighbors;
 }

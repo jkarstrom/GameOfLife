@@ -14,17 +14,13 @@ FileIO::FileIO(Grid *someGrid, int genNum)
   newfile.open ("GameOfLife.txt");
   gameBoard = someGrid;
   generationNum = genNum;
+  printGenNumbers();
+  printGameBoard();
 }
 
 FileIO::~FileIO()
 {
   delete gameBoard;
-}
-
-void FileIO::print()
-{
-  printGenNumbers();
-  printGameBoard();
 }
 
 void FileIO::printGenNumbers()

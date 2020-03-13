@@ -14,7 +14,6 @@ DoughnutMode::DoughnutMode()
 
 DoughnutMode::DoughnutMode(Grid *someGrid)
 {
-  int numNeighbors = 0;
   rows = someGrid->getRows();
   columns = someGrid->getColumns();
   newNeighbors = new int*[rows];
@@ -138,9 +137,9 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r][colums-1];
-                        ++newNeighbors[r-1][colums-1];
-                        ++newNeighbors[r+1][colums-1];
+                        ++newNeighbors[r][columns-1];
+                        ++newNeighbors[r-1][columns-1];
+                        ++newNeighbors[r+1][columns-1];
                     }
                 }
                 // last column
@@ -151,9 +150,9 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r][colums-c];
-                        ++newNeighbors[r+1][colums-c];
-                        ++newNeighbors[r-1][colums-c];
+                        ++newNeighbors[r][columns-c];
+                        ++newNeighbors[r+1][columns-c];
+                        ++newNeighbors[r-1][columns-c];
                     }
                 }
                 // middle columns

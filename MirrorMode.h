@@ -1,3 +1,4 @@
+#include "Grid.h"
 #include <iostream>
 
 using namespace std;
@@ -10,14 +11,10 @@ class MirrorMode
     ~MirrorMode();
 
     //cour functions
-    countNeighbors();
-    zeroNeighbors();
-
-    //aux functions
-    getNumNeighboors();
+    void countNeighbors(Grid *someGrid);
+    void zeroNeighbors();
 
     //vars
-    int numNeighbors;
     int rows = 0;
     int columns = 0;
     int **newNeighbors;
