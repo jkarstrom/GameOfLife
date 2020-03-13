@@ -1,7 +1,6 @@
 #include "FileIO.h"
 #include <fstream>
 #include <string>
-#include <bits/stdc++.h>
 
 FileIO::FileIO()
 {
@@ -11,11 +10,14 @@ FileIO::FileIO()
 FileIO::FileIO(Grid *someGrid, int genNum)
 {
   ofstream newfile;
-  newfile.open ("GameOfLife.txt");
-  gameBoard = someGrid;
+  newfile.open("GameOfLife.txt");
+  rows = someGrid->getRows();
+  columns = someGrid->getColumns();
+  gameBoard = new char*[rows];
+  for(int i = 0; i < rows; ++i){
+      gameBoard[i] = new char[columns];
+  }
   generationNum = genNum;
-  printGenNumbers();
-  printGameBoard();
 }
 
 FileIO::~FileIO()
@@ -23,19 +25,21 @@ FileIO::~FileIO()
   delete gameBoard;
 }
 
-void FileIO::printGenNumbers()
+void FileIO::print()
 {
-  newfile << "\nThe number of generations was: " << generationNum << endl;
-}
-
-void FileIO::printGameBoard()
-{
-  for(int i = 0; i < gameBoard.length(); ++i)
+  if (newfile.is_open())
   {
-    for(int j = 0; i < gameBoard[i].length(); ++j)
+    newfile << "\nThe number of generations was: " << generationNum;
+    for(int i = 0; i < rows; ++i)
     {
-      newfile << gameBoard[i][j] << endl;
+      for(int j = 0; j < columns; ++j)
+      {
+        newfile << gameBoard[i][j];
+      }
+      newfile << "   \n";
     }
-    newfile << "   \n" << endl;
+    newfile.close();
   }
+  else cout << "Unable to open file";
+  return 0;
 }

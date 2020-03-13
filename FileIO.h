@@ -14,10 +14,11 @@ public:
   //cour functions
 
   //aux functions
-  printGameBoard();
-  printGenNumbers();
+  void print();
 
   //vars
-  int **newNeighbors;
+  int rows = 0;
+  int columns = 0;
+  Grid *gameBoard;
   int generationNum:
-}
+};
