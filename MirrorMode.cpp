@@ -10,6 +10,7 @@ MirrorMode::MirrorMode()
       newNeighbors[i] = new int[columns];
   }
   zeroNeighbors();
+  numNeighbors = 0;
 }
 
 MirrorMode::MirrorMode(Grid *someGrid)
@@ -22,6 +23,7 @@ MirrorMode::MirrorMode(Grid *someGrid)
       newNeighbors[i] = new int[columns];
   }
   zeroNeighbors();
+  numNeighbors = 0;
 }
 
 MirrorMode::~MirrorMode()
@@ -38,6 +40,7 @@ void MirrorMode::zeroNeighbors(){
             newNeighbors[i][j] = 0;
         }
     }
+    numNeighbors = 0;
 }
 
 void MirrorMode::countNeighbors(Grid *someGrid){
@@ -52,11 +55,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
-                        ++newNeighbors[r][columns-1];
-                        ++newNeighbors[r-1][columns-1];
-                        ++newNeighbors[rows-1][c];
-                        ++newNeighbors[rows-1][c+1];
-                        ++newNeighbors[rows-1][columns-1];
+                        numNeighbors+= 3;
                     }
                 }
                 // last column
@@ -65,6 +64,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
+                        numNeighbors+= 3;
                     }
                 }
                 // middle columns
@@ -75,6 +75,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r+1][c];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r][c-1];
+                        numNeighbors++;
                     }
                 }
             }
@@ -86,6 +87,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r-1][c+1];
                         ++newNeighbors[r-1][c];
+                        numNeighbors+= 3;
                     }
                 }
                 // last column
@@ -94,6 +96,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r-1][c];
+                        numNeighbors+= 3;
                     }
                 }
                 // middle column
@@ -104,6 +107,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r-1][c-1];
                         ++newNeighbors[r][c-1];
+                        numNeighbors++;
                     }
                 }
             }
@@ -117,6 +121,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c+1];
                         ++newNeighbors[r+1][c+1];
                         ++newNeighbors[r+1][c];
+                        numNeighbors+= 3;
                     }
                 }
                 // last column
@@ -127,6 +132,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r+1][c];
+                        numNeighbors+= 3;
                     }
                 }
                 // middle columns
@@ -140,6 +146,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r+1][c-1];
                         ++newNeighbors[r][c-1];
                         ++newNeighbors[r-1][c-1];
+                        numNeighbors++;
                     }
                 }
             }
@@ -148,51 +155,7 @@ void MirrorMode::countNeighbors(Grid *someGrid){
     someGrid->updateNeighbors(newNeighbors);
 }
 
-int MirrorMode::countNeighbors()
+int MirrorMode::getNumNeighboors()
 {
-  int tempCorner = 0;
-  int tempSide = 0;
-  int tempMiddle = 0;
-
-  for(int i = 0; i < gameBoard.length(); ++i)
-  {
-    for(int j = 0; j < gameBoard[i].length(); ++j)
-    {
-      if(gameBoard[i][j]=='x')
-      {
-        if(checkCorner(i,j))
-        {
-          tempCorner++;
-        }
-        else if(checkSide(i,j))
-        {
-          tempSide++;
-        }
-        else
-        {
-          tempMiddle++;
-        }
-      }
-    }
-  }
-  numNeighbors = (tempCorner*3)+(tempSide*2)+tempMiddle;
-}
-
-bool MirrorMode::checkCorner(int x, int y)
-{
-  if(gameBoard[x-1][y]== null || gameBoard[x+1][y]== null)
-  {
-    if(gameBoard[x][y-1]== null || gameBoard[x][y+1]== null)
-    {
-        return true;
-    }
-  }
-}
-
-bool MirrorMode::checkSide(int x, int y)
-{
-  if(gameBoard[x-1][y]== null || gameBoard[x+1][y]== null || gameBoard[x][y-1]== null || gameBoard[x][y+1]== null)
-  {
-    return true;
-  }
+  return numNeighbors;
 }
