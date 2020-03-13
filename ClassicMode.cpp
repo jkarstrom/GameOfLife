@@ -8,9 +8,7 @@ ClassicMode::ClassicMode(){
         newNeighbors[i] = new int[columns];
     }
     zeroNeighbors();
-    numNeighbors = 0;
 }
-
 
 ClassicMode::ClassicMode(Grid *someGrid){
     rows = someGrid->getRows();

@@ -8,11 +8,11 @@ FileIO::FileIO()
   //default constructor
 }
 
-FileIO::FileIO(array b, int genNum)
+FileIO::FileIO(Grid *someGrid, int genNum)
 {
   ofstream newfile;
   newfile.open ("GameOfLife.txt");
-  gameBoard = b;
+  gameBoard = someGrid;
   generationNum = genNum;
 }
 
@@ -23,7 +23,8 @@ FileIO::~FileIO()
 
 void FileIO::print()
 {
-
+  printGenNumbers();
+  printGameBoard();
 }
 
 void FileIO::printGenNumbers()
