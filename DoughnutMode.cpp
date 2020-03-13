@@ -107,7 +107,7 @@ void DoughnutMode::countNeighbors(Grid *someGrid){
                         ++newNeighbors[r-1][c];
                         ++newNeighbors[r][0];
                         ++newNeighbors[r-1][0];
-                        ++newNeighbors[0][columns-c];
+                        ++newNeighbors[0][c-1];
                         ++newNeighbors[0][c];
                         ++newNeighbors[0][0];
                     }

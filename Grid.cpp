@@ -112,6 +112,7 @@ int Grid::getColumns(){
     return columnCount;
 }
 
+// returns the generation number
 int Grid::getGenerationNum(){
     return generationNum;
 }
@@ -122,16 +123,6 @@ void Grid::printGrid(){
     for(int r = 0; r < rowCount; ++r){
         for(int c = 0; c < columnCount; ++c){
             cout << generationGrid[r][c];
-        }
-        cout << endl;
-    }
-}
-
-// prints neighborCountGrid (DELETE BEFORE SUBMISSION)
-void Grid::printGrid2(){
-    for(int r = 0; r < rowCount; ++r){
-        for(int c = 0; c < columnCount; ++c){
-            cout << neighborCountGrid[r][c];
         }
         cout << endl;
     }

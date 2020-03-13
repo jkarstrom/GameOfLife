@@ -24,7 +24,6 @@ public:
     int getColumns(); // returns number of columns for grid
     int getGenerationNum(); // returns the generation number
     void printGrid(); // prints bacteria colony
-    void printGrid2(); // prints neighborCountGrid (DELETE BEFORE SUBMISSION)
 
 private:
     int rowCount = 0;

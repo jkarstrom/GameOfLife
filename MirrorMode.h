@@ -11,7 +11,6 @@ public:
     void countNeighbors(Grid *someGrid);
 
 private:
-
     void zeroNeighbors();
 
     //vars
