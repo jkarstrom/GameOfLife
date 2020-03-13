@@ -1,6 +1,12 @@
 #include "FileIO.h"
 #include <fstream>
 #include <string>
+//Joan Karstrom, Jennifer Nguyen
+//ID: 2318286, 2320560
+//karstrom@chapman.edu, jenguyen@chapman.edu
+//CPSC: 350 - 2
+//Assignment 2: Game of Life
+
 
 FileIO::FileIO()
 {
@@ -10,9 +16,10 @@ FileIO::FileIO()
 
 FileIO::~FileIO()
 {
-
+  //deconstructor
 }
 
+//mapping data in order to print to txt file
 void FileIO::readMapping(string fileName, Grid *someGrid){
     int rowIdx = 0;
     int columnIdx = 0;
@@ -39,6 +46,7 @@ void FileIO::readMapping(string fileName, Grid *someGrid){
     }
 }
 
+//prints out generations to txt file
 void FileIO::print(string fileName, Grid *someGrid)
 {
 

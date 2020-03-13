@@ -1,5 +1,11 @@
 #include "ClassicMode.h"
+//Joan Karstrom, Jennifer Nguyen
+//ID: 2318286, 2320560
+//karstrom@chapman.edu, jenguyen@chapman.edu
+//CPSC: 350 - 2
+//Assignment 2: Game of Life
 
+//default constructor
 ClassicMode::ClassicMode(){
     rows = 5;
     columns = 5;
@@ -10,6 +16,7 @@ ClassicMode::ClassicMode(){
     zeroNeighbors();
 }
 
+//overload constructor
 ClassicMode::ClassicMode(Grid *someGrid){
     rows = someGrid->getRows();
     columns = someGrid->getColumns();
@@ -20,6 +27,7 @@ ClassicMode::ClassicMode(Grid *someGrid){
     zeroNeighbors();
 }
 
+//deconstructor
 ClassicMode::~ClassicMode(){
     for(int x = 0; x < rows; ++x) {
         delete[] newNeighbors[x];

@@ -7,12 +7,19 @@
 #include <time.h>
 using namespace std;
 
+//Joan Karstrom, Jennifer Nguyen
+//ID: 2318286, 2320560
+//karstrom@chapman.edu, jenguyen@chapman.edu
+//CPSC: 350 - 2
+//Assignment 2: Game of Life
+
 class Grid{
 public:
-    Grid();
-    Grid(int row, int column);
-    ~Grid();
+    Grid();//default constructor
+    Grid(int row, int column);//overload constructor
+    ~Grid();//deconstructor
 
+    //cor funtions
     void assignCells(char **arr); // used for when user has initial cell mapping
     void randomCells(); // generates a random assort of bacteria based on random density
     void updateNeighbors(int **arr); // changes the neighborCountGrid
@@ -26,12 +33,15 @@ public:
     void printGrid(); // prints bacteria colony
 
 private:
+
+    //vars
     int rowCount = 0;
     int columnCount = 0;
     int generationNum = 0;
     char** generationGrid;
     int** neighborCountGrid;
 
+    //aux funtions
     void fillGrid(); // initializes generationGrid and neighborCountGrid to default values
 
 };

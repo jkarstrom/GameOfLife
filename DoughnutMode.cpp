@@ -1,5 +1,11 @@
 #include "DoughnutMode.h"
+//Joan Karstrom, Jennifer Nguyen
+//ID: 2318286, 2320560
+//karstrom@chapman.edu, jenguyen@chapman.edu
+//CPSC: 350 - 2
+//Assignment 2: Game of Life
 
+//default constructor
 DoughnutMode::DoughnutMode()
 {
   rows = 5;
@@ -11,6 +17,7 @@ DoughnutMode::DoughnutMode()
   zeroNeighbors();
 }
 
+//overload constructor
 DoughnutMode::DoughnutMode(Grid *someGrid)
 {
   rows = someGrid->getRows();
@@ -22,6 +29,7 @@ DoughnutMode::DoughnutMode(Grid *someGrid)
   zeroNeighbors();
 }
 
+//deconstructor
 DoughnutMode::~DoughnutMode()
 {
   for(int x = 0; x < rows; ++x) {
@@ -30,6 +38,7 @@ DoughnutMode::~DoughnutMode()
   delete[] newNeighbors;
 }
 
+// zeros newNeighbors array to 0
 void DoughnutMode::zeroNeighbors(){
     for(int i = 0; i < rows; ++i){
         for(int j = 0; j < columns; ++j){
@@ -38,6 +47,7 @@ void DoughnutMode::zeroNeighbors(){
     }
 }
 
+// counts and updates the neighborCountGrid
 void DoughnutMode::countNeighbors(Grid *someGrid){
     zeroNeighbors();
     for(int r = 0; r < rows; ++r){

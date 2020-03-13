@@ -1,6 +1,12 @@
 #include "Runner.h"
 #include "FileIO.h"
+//Joan Karstrom, Jennifer Nguyen
+//ID: 2318286, 2320560
+//karstrom@chapman.edu, jenguyen@chapman.edu
+//CPSC: 350 - 2
+//Assignment 2: Game of Life
 
+//default constructor
 Runner::Runner(){
     // establish initial grid size
     cout << "How many rows are in the bacteria grid? ";
@@ -132,6 +138,7 @@ Runner::Runner(){
     delete newPlay;
 }
 
+//deconstructor
 Runner::~Runner(){
     userGrid = NULL;
     delete userGrid;
